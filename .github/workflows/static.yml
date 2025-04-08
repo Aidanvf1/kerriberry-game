@@ -1,7 +1,7 @@
 name: Build and Deploy Pygbag
 on:
   push:
-    branches: [ main ]
+    branches: [ main ]  # or 'master' if that's your default branch
 permissions:
   contents: write
 jobs:
@@ -11,10 +11,16 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
       - name: Install and Build 🔧
         run: |
-          python3 -m pip install --user pygbag
-          python3 -m pygbag --build $GITHUB_WORKSPACE/main.py
+          python -m pip install --upgrade pip
+          python -m pip install pygbag
+          python -m pygbag --build $GITHUB_WORKSPACE/main.py
           
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
