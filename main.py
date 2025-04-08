@@ -99,11 +99,11 @@ async def main():
     game_active = False
     start_time = 0
     score = 0
-    jump_sound = pygame.mixer.Sound(resource_path('audio/Jump.mp3'))
+    jump_sound = pygame.mixer.Sound(resource_path('audio/Jump.ogg'))
     jump_sound.set_volume(0.5)
-    Music = pygame.mixer.Sound(resource_path('audio/Music.mp3'))
+    Music = pygame.mixer.Sound(resource_path('audio/Music.ogg'))
     Music.set_volume(0.5)
-    bgmusic = pygame.mixer.Sound(resource_path('audio/bgmusic.mp3'))
+    bgmusic = pygame.mixer.Sound(resource_path('audio/bgmusic.ogg'))
 
     obstacle_rect_list = []
 
